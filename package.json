@@ -1,0 +1,78 @@
+{
+  "name": "ui_starter_kit",
+  "version": "1.0.0",
+  "description": "A starter kit for UI applications",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usmakestwo/ui-starter-kit.git"
+  },
+  "author": {
+    "name": "Gonzalo Vazquez",
+    "email": "gvazquez@usmakestwo.io"
+  },
+  "license": "UsMakesTwo",
+  "bugs": {
+    "url": "https://github.com/usmakestwo/ui-starter-kit.git/issues"
+  },
+  "homepage": "https://github.com/usmakestwo/ui-starter-kit.git#readme",
+  "devDependencies": {
+    "@babel/core": "7.0.0-rc.4",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.0.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.5.0",
+    "react-hot-loader": "^4.3.6",
+    "react-test-renderer": "^16.5.0",
+    "redux-devtools": "^3.4.1",
+    "redux-devtools-dock-monitor": "^1.1.3",
+    "redux-devtools-log-monitor": "^1.4.0",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0",
+    "d3": "~3.5.17",
+    "d3-force-3d": "^1.0",
+    "lodash": "^4.17.11",
+    "pre-commit": "^1.2.2",
+    "prop-types": "^15.5.10",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "swc": "^0.2",
+    "three": "~0.86"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js",
+    "dist": "rm -rf dist && cross-env NODE_ENV=production webpack --progress --config ./webpack.config.js",
+    "test": "npm run-script lint",
+    "lint": "node node_modules/eslint/bin/eslint.js --ext .js src",
+    "prepublish": "npm run dist"
+  },
+  "precommit": [
+    "test",
+    "dist"
+  ]
+}
