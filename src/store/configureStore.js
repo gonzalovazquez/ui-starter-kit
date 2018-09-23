@@ -34,8 +34,7 @@ const store = createStore(rootReducer, persistedState, enhancer);
  */
 store.subscribe(throttle(() => {
   saveState({
-    catalog: store.getState().catalog,
-    authorization: store.getState().authorization,
+    todo: store.getState().todo,
   });
 }), 1000);
 
