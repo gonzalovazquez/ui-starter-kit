@@ -9,7 +9,7 @@ import { fetchListofTodos, removeTodoFromTodos } from '../../action/todo';
  * @class Todo
  * @extends {Component}
  */
-class MainViewer extends React.Component {
+class Todo extends React.Component {
   /**
    * Fetches todo onLoad.
    */
@@ -30,14 +30,13 @@ class MainViewer extends React.Component {
         <h1>All Todos:</h1>
         <ol>
           {
-            this.props.isLoading ? <p>Loading...</p> :
-              this.props.todos.map((value, index) => (
+            this.props.isLoading ? <p>Loading...</p>
+              : this.props.todos.map((value, index) => (
                 <li key={index} onClick={() => deleteTodo(value)}>
                   <span>{value.userId} : </span>
                   {value.title}
                 </li>
-              )
-            )
+              ))
           }
         </ol>
       </div>
@@ -61,7 +60,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = dispatch => ({
   getTodos: () => dispatch(fetchListofTodos()),
-  removeTodo: (todo) => dispatch(removeTodoFromTodos(todo)),
+  removeTodo: todo => dispatch(removeTodoFromTodos(todo)),
 });
 
 /**
@@ -72,7 +71,7 @@ const mapDispatchToProps = dispatch => ({
  * @property {function} getTodos - Function to fetch todos.
  * @property {function} removeTodo - Function to revmove Todo.
  */
-MainViewer.propTypes = {
+Todo.propTypes = {
   todos: PropTypes.array,
   hasError: PropTypes.bool,
   isLoading: PropTypes.bool,
@@ -83,4 +82,4 @@ MainViewer.propTypes = {
 /**
  * Connects to Redux.
  */
-export default connect(mapStateToProps, mapDispatchToProps)(MainViewer);
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);

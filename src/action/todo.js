@@ -4,7 +4,7 @@ import {
   TODO_IS_LOADING,
   TODO_HAS_ERROR,
   TODO_IS_SUCCESSFUL,
-  TODO_TO_REMOVE
+  TODO_TO_REMOVE,
 } from '../constants';
 
 
@@ -56,7 +56,7 @@ export const removeTodoFromTodos = item => ({
  * If there is an error, it will call the todoHasError
  * @return {function} Triggers action creators
  */
-export const fetchListofTodos = () => async dispatch => {
+export const fetchListofTodos = () => async (dispatch) => {
   dispatch(todoIsLoading(true));
   try {
     dispatch(todoIsSuccessful(await todo()));

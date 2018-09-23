@@ -2,19 +2,19 @@
  * initialState
  * Object that defines the initial state.
  */
+import {
+  TODO_IS_LOADING,
+  TODO_HAS_ERROR,
+  TODO_IS_SUCCESSFUL,
+  TODO_TO_REMOVE,
+} from '../constants';
+
 const initialState = {
   todos: [],
   hasErrored: false,
   isLoading: false,
   isSuccessful: false,
 };
-
-import {
-  TODO_IS_LOADING,
-  TODO_HAS_ERROR,
-  TODO_IS_SUCCESSFUL,
-  TODO_TO_REMOVE
-} from '../constants';
 
 /**
  * Reducer for todo state.
@@ -47,8 +47,8 @@ export default function todo(state = initialState, action) {
     case TODO_TO_REMOVE:
       return {
         ...state,
-        todos: state.todos.filter((itm) => itm.title !== action.item.title),
-      }
+        todos: state.todos.filter(itm => itm.title !== action.item.title),
+      };
     default:
       return state;
   }

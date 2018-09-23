@@ -2,6 +2,7 @@
   "parser": "babel-eslint",
   "extends": ["airbnb-base", "plugin:react/recommended"],
   "env": {
+    "mocha" : true,
     "browser": true,
     "es6": true
   },

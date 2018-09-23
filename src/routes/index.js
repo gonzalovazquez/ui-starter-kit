@@ -1,17 +1,17 @@
 /* eslint no-unused-vars: 0 */
-import MainViewer from '../components/MainViewer/MainViewer';
+import Todo from '../components/Todo/Todo';
 
 /**
  * Global Routes
  */
 export default [
   {
-    component: MainViewer,
+    component: Todo,
     routes: [
       {
         path: '/',
         exact: true,
-        component: MainViewer,
+        component: Todo,
       },
     ],
   },

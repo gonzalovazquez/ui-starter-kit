@@ -4,16 +4,16 @@ import {
   todohasError,
   todoIsSuccessful,
   removeTodoFromTodos,
-} from '../actions/todo';
+} from '../../action/todo';
 
 import {
   TODO_IS_LOADING,
   TODO_HAS_ERROR,
   TODO_IS_SUCCESSFUL,
-  TODO_TO_REMOVE
-} from '../constants';
+  TODO_TO_REMOVE,
+} from '../../constants';
 
-const expect = chai.expect;
+const { expect } = chai;
 
 
 describe('actions', () => {
@@ -28,7 +28,7 @@ describe('actions', () => {
   });
 
   it('todoIsSuccessful', () => {
-    const todos = [{ todo: 1, todo: 2 }];
+    const todos = [{ todo: 1, todo1: 2 }];
     expect(todoIsSuccessful().type).to.equal(TODO_IS_SUCCESSFUL);
     expect(todoIsSuccessful(todos).items).to.equal(todos);
   });
