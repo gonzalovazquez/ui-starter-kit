@@ -69,6 +69,7 @@
     "test": "npm run-script lint && mocha ./src/__tests__/**/*.js --require @babel/register",
     "lint": "node node_modules/eslint/bin/eslint.js --ext .js src",
     "lint-fix": "node node_modules/eslint/bin/eslint.js --fix --ext .js src",
+    "security": "npm audit",
     "prepublish": "npm run dist"
   },
   "precommit": [
