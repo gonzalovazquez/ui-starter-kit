@@ -4,6 +4,8 @@
 
 An opinionated starter kit to create fast UI applications using ReactJS.
 
+If you are interested in using React Hooks instead of Redux please take a look at the [next](https://github.com/usmakestwo/ui-starter-kit/tree/react/next) branch.
+
 ## Usage
 
 Clone this repo `git clone git@github.com:usmakestwo/ui-starter-kit.git` and replace `ui-starter-kit` with your project name
