@@ -1,77 +1,54 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { fetchListofTodos, removeTodoFromTodos } from '../../action/todo';
+import todoAPI from '../../api/todo';
 import Todo from '../../components/Todo/Todo';
+import { saveState, loadState } from '../../tools/localStorage';
 
 /**
  * Home
  * Fetches todos and renders component
- * @class Home
- * @extends {Component}
  */
-class Home extends React.Component {
-  /**
-   * Fetches todo onLoad.
-   */
-  componentDidMount() {
-    this.props.getTodos();
-  }
-
-  /**
-   * Returns lists of todos my iterating over array.
-   * @return {ReactElement} markup
-   */
-  render() {
-    const deleteTodo = (todo) => {
-      this.props.removeTodo(todo);
-    };
-    return (
-      <Todo
-        isLoading={this.props.isLoading}
-        deleteTodo={deleteTodo}
-        todos={this.props.todos}
-      />
-    );
-  }
+function Home() {
+  const [todos, setTodos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  // Fetch todos from API
+  const fetchData = async () => {
+    setIsLoading(true);
+    const result = await todoAPI();
+    setTodos(result);
+    setIsLoading(false);
+  };
+  // Call Todos on load
+  useEffect(() => {
+    const todosFromMemory = loadState();
+    // Load todos from Session Storage if available
+    if (todosFromMemory) {
+      fetchData();
+    } else {
+      setTodos(todosFromMemory);
+    }
+  }, []);
+  // Save data to Session Storage
+  useEffect(() => {
+    if (todos.length > 1) {
+      saveState(todos);
+    }
+  }, [todos]);
+  return (
+    <Todo
+      todos={todos}
+      isLoading={isLoading}
+      deleteTodo={id => setTodos(todos.filter(itm => itm.id !== id))}
+    />
+  );
 }
 
 /**
- * Connects todo state to properties
- * @param {object} state - User state.
- */
-const mapStateToProps = state => ({
-  hasError: state.todo.hasErrored,
-  isLoading: state.todo.isLoading,
-  todos: state.todo.todos,
-});
-
-/**
- * Event for retriving Todos
- * @param {function} dispatch - Fires event.
- */
-const mapDispatchToProps = dispatch => ({
-  getTodos: () => dispatch(fetchListofTodos()),
-  removeTodo: todo => dispatch(removeTodoFromTodos(todo)),
-});
-
-/**
  * propTypes
- * @property {array} todos - Array of all the todos.
- * @property {boolean} hasError - Flag if there is an error.
- * @property {boolean} isLoading - Flag when request is loading.
- * @property {function} getTodos - Function to fetch todos.
- * @property {function} removeTodo - Function to revmove Todo.
+ * @property {function} todoAPI - API to retrieve Todos.
  */
 Home.propTypes = {
-  todos: PropTypes.array,
-  hasError: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  getTodos: PropTypes.func,
-  removeTodo: PropTypes.func,
+  todoAPI: PropTypes.func,
 };
 
-/**
- * Connects to Redux.
- */
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

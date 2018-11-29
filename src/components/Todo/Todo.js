@@ -9,17 +9,17 @@ import PropTypes from 'prop-types';
 const Todo = props => (
   <div className="todo">
     <h1>All Todos:</h1>
-      <ol>
-        {
-          props.isLoading ? <p>Loading...</p>
-            : props.todos.map((value, index) => (
-              <li key={index} onClick={() => props.deleteTodo(value)}>
-                <span>{value.userId} : </span>
-                {value.title}
-              </li>
-            ))
-        }
-      </ol>
+    <ol>
+      {
+        props.isLoading ? <p>Loading...</p>
+          : props.todos.map((value, index) => (
+            <li key={index} onClick={() => props.deleteTodo(value.id)}>
+              <span>{value.userId} : </span>
+              {value.title}
+            </li>
+          ))
+      }
+    </ol>
   </div>
 );
 

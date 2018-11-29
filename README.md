@@ -4,6 +4,8 @@
 
 An opinionated starter kit to create fast UI applications using ReactJS.
 
+The `next` branch replaces the use of redux with native React Hooks. The code is much slimmer in nature and avoids using JavaScript Classes.
+
 ## Usage
 
 Clone this repo `git clone git@github.com:usmakestwo/ui-starter-kit.git` and replace `ui-starter-kit` with your project name
@@ -27,10 +29,13 @@ The following library and tools selections where made to improve and standarize 
 
 ### State Management
 
-- [Redux](https://redux.js.org)
+- [Hooks](https://reactjs.org/docs/hooks-overview.html)
 
 
 ## Release Notes
+
+### 2.0.0
+- Replaced Redux with Hooks
 
 ### 1.0.1
 - Add CircleCI

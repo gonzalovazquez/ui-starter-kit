@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './store/configureStore';
 
 import App from './components/App';
 import routes from './routes';
@@ -9,7 +8,6 @@ import routes from './routes';
  * Define context for Application
  */
 const context = {
-  store,
   routes,
 };
 
