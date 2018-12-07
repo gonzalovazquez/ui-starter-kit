@@ -35,11 +35,15 @@ function Home() {
     }
   }, [todos]);
   return (
-    <Todo
-      todos={todos}
-      isLoading={isLoading}
-      deleteTodo={id => setTodos(todos.filter(itm => itm.id !== id))}
-    />
+    <div>
+      {isLoading ? <p>Loading...</p>
+        : <Todo
+            todos={todos}
+            isLoading={isLoading}
+            deleteTodo={id => setTodos(todos.filter(itm => itm.id !== id))}
+          />
+      }
+    </div>
   );
 }
 
