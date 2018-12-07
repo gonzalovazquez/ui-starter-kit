@@ -23,9 +23,9 @@ function Home() {
     const todosFromMemory = loadState();
     // Load todos from Session Storage if available
     if (todosFromMemory) {
-      fetchData();
-    } else {
       setTodos(todosFromMemory);
+    } else {
+      fetchData();
     }
   }, []);
   // Save data to Session Storage
