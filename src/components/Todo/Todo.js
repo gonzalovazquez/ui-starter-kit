@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 /**
  * Todo
  * Renders todos
@@ -8,18 +12,20 @@ import PropTypes from 'prop-types';
  */
 const Todo = props => (
   <div className="todo">
-    <h1>All Todos:</h1>
-    <ol>
-      {
-        props.isLoading ? <p>Loading...</p>
-          : props.todos.map((value, index) => (
-            <li key={index} onClick={() => props.deleteTodo(value.id)}>
-              <span>{value.userId} : </span>
-              {value.title}
-            </li>
-          ))
-      }
-    </ol>
+    {
+      props.todos.map((value, index) => (
+          <ListItem key={index}>
+            <ListItemText
+              primary={`${value.id}.${value.title}`}
+            />
+            <ListItemSecondaryAction>
+              <IconButton aria-label="Delete" onClick={() => props.deleteTodo(value.id)}>
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+      ))
+    }
   </div>
 );
 
@@ -31,7 +37,6 @@ const Todo = props => (
  */
 Todo.propTypes = {
   todos: PropTypes.array,
-  isLoading: PropTypes.bool,
   deleteTodo: PropTypes.func,
 };
 
