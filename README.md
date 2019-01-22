@@ -40,6 +40,9 @@ of Material UI into our starter-kit.
 
 ## Release Notes
 
+### 2.1.0 - [`material-ui-next`](https://github.com/usmakestwo/ui-starter-kit/tree/material-ui-next)
+- Add Material UI as UI Framwork
+
 ### 2.0.0
 - Replaced Redux with Hooks
 
