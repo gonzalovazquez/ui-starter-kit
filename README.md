@@ -34,7 +34,7 @@ The following library and tools selections where made to improve and standarize 
 ### Style Management
 
 For styling I have decided to use [Material UI](https://material-ui.com/).
-The library comes with great variety of UI components as well it is easy to work with. The `material-ui-next` branch provides the implementation
+The library comes with great variety of UI components as well it is easy to work with. The [`material-ui-next`](https://github.com/usmakestwo/ui-starter-kit/tree/material-ui-next) branch provides the implementation
 of Material UI into our starter-kit.
 
 
