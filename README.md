@@ -31,6 +31,12 @@ The following library and tools selections where made to improve and standarize 
 
 - [Hooks](https://reactjs.org/docs/hooks-overview.html)
 
+### Style Management
+
+For styling I have decided to use [Material UI](https://material-ui.com/).
+The library comes with great variety of UI components as well it is easy to work with. The `material-ui-next` branch provides the implementation
+of Material UI into our starter-kit.
+
 
 ## Release Notes
 
