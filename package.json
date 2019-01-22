@@ -1,6 +1,6 @@
 {
   "name": "ui_starter_kit",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A starter kit for UI applications",
   "main": "index.html",
   "repository": {
@@ -47,6 +47,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
+    "@material-ui/core": "^3.9.0",
+    "@material-ui/icons": "^3.0.2",
     "pre-commit": "^1.2.2",
     "prop-types": "^15.6.2",
     "react": "16.7.0-alpha.2",
