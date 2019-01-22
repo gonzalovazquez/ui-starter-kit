@@ -31,6 +31,7 @@ if [ -z $3 ]; then
 fi
 
 echo "Building $xNAME ..."
+npm install
 npm run dist
 echo "$xNAME built"
 echo "Building Docker image with version $xVERSION"
